@@ -60,7 +60,6 @@ public class PlayerController : NetworkBehaviour
         transposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
         virtualCamera.gameObject.SetActive(true);
         enabled = true;
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>().playerList.Add(netIdentity);
     }
 
     // Update is called once per frame
