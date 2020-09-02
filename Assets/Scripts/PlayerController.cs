@@ -20,6 +20,7 @@ public class PlayerController : NetworkBehaviour
     private GameObject targetedObject;
     public int maxHealth;
     public bool isMonster;
+    public GameObject gameManager;
 
     [SerializeField]
     private GameObject toymakerTrap;
@@ -81,22 +82,31 @@ public class PlayerController : NetworkBehaviour
             {
                 health = maxHealth;
             }
+            if(health < 0)
+            {
+                gameManager.GetComponent<GameManager>().SurvivorKilled(netIdentity);
+                GetComponent<MeshRenderer>().enabled = false;
+            }
 
             if(isMonster)
             {
-                if (GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>().gameMonster == RelicType.relic.ghost)
+                if (gameManager.GetComponent<GameManager>().gameMonster == RelicType.relic.ghost)
                 {
                     Physics.IgnoreCollision(GetComponent<Collider>(), GameObject.FindGameObjectWithTag("Wall").GetComponent<Collider>());
                 }
 
                 GetComponent<Material>().color = Color.red;
+                if(health < 0)
+                {
+                    gameManager.GetComponent<GameManager>().MonsterKilled();
+                }
             }
         }
     }
 
     private void FixedUpdate()
     {
-        if (hasAuthority)
+        if (hasAuthority && health > 0)
         {
             if (Input.GetAxisRaw("Vertical") > 0)
             {
@@ -162,7 +172,7 @@ public class PlayerController : NetworkBehaviour
             {
                 if(isMonster)
                 {
-                    if(GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>().gameMonster == RelicType.relic.toymaker)
+                    if(gameManager.GetComponent<GameManager>().gameMonster == RelicType.relic.toymaker)
                     {
                         CmdPlaceToymakerTrap();
                     }
@@ -208,7 +218,7 @@ public class PlayerController : NetworkBehaviour
                             {
                                 CmdPlaceRelic();
                                 useItem();
-                                GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>().startMonsterPhase(equippedItem.GetComponent<ItemScript>().relicType);
+                                gameManager.GetComponent<GameManager>().StartMonsterPhase(equippedItem.GetComponent<ItemScript>().relicType);
                             }
                             break;
                     }

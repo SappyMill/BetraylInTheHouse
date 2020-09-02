@@ -13,7 +13,6 @@ public class GameManager : NetworkBehaviour
     void Start()
     {
         monsterPhase = false;
-        
     }
 
     // Update is called once per frame
@@ -22,12 +21,33 @@ public class GameManager : NetworkBehaviour
         
     }
 
-    public void startMonsterPhase(RelicType.relic matchRelic)
+    public void StartMonsterPhase(RelicType.relic matchRelic)
     {
         monsterPhase = true;
         gameMonster = matchRelic;
         int randomNum = Random.Range(0, playerList.Count);
         playerList[randomNum].GetComponent<PlayerController>().isMonster = true;
         GetComponent<MonsterScript>().SetMonsterStats(matchRelic);
+        playerList.RemoveAt(randomNum);
+    }
+
+    public void SurvivorKilled(NetworkIdentity player)
+    {
+        for (int i = 0; i < playerList.Count; i++)
+        {
+            if(playerList[i] == player)
+            {
+                playerList.Remove(player);
+            }
+        }
+        if(playerList.Count == 0)
+        {
+            //KillerWins
+        }
+    }
+
+    public void MonsterKilled()
+    {
+        //SurvivorsWin
     }
 }

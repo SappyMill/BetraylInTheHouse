@@ -24,7 +24,6 @@ ScriptsOnlyBuild:
     - Mirror.NetworkTransform
     Mirror.dll:
     - Mirror.NetworkIdentity
-    - Mirror.NetworkManager
     - Mirror.NetworkStartPosition
     - Mirror.TelepathyTransport
     Unity.Rider.Editor.dll:
@@ -75,8 +74,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
     - Class: 65
@@ -88,17 +85,7 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11186}
-    - Class: 114
-      Script: {instanceID: 11190}
-    - Class: 114
-      Script: {instanceID: 11402}
-    - Class: 114
       Script: {instanceID: 11406}
-    - Class: 114
-      Script: {instanceID: 11422}
-    - Class: 114
-      Script: {instanceID: 11476}
     - Class: 114
       Script: {instanceID: 11576}
     - Class: 114
@@ -106,13 +93,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12182}
     - Class: 114
-      Script: {instanceID: 12336}
-    - Class: 114
       Script: {instanceID: 12728}
-    - Class: 114
-      Script: {instanceID: 12844}
-    - Class: 114
-      Script: {instanceID: 13120}
     - Class: 114
       Script: {instanceID: 13176}
     - Class: 114
@@ -122,30 +103,16 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13554}
-    - Class: 114
       Script: {instanceID: 13556}
     - Class: 114
       Script: {instanceID: 13664}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 136
-      Script: {instanceID: 0}
-    - Class: 143
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
     - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/joinLobby.unity:
     - Class: 1

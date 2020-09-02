@@ -591,6 +591,8 @@ MonoBehaviour:
   healthText: {fileID: 7037511366359237143}
   maxHealth: 20
   isMonster: 0
+  gameManager: {fileID: 5557022211648711063, guid: 7e23914c3c74f4f4ca75512d76162a46,
+    type: 3}
   toymakerTrap: {fileID: 7333122520883560124, guid: 69c5c9fe30a4ad24798a3c8193213914,
     type: 3}
   health: 20
